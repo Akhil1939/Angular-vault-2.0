@@ -9,11 +9,11 @@ import { AboutTeamComponent } from './about/about-team/about-team.component';
 
 const routes: Routes = [
   {
-    path:"/",
+    path:"",
     component:HomeComponent
   },
   {
-    path:'/about',
+    path:'about',
     component:AboutComponent,
     children:[
       {
@@ -28,7 +28,7 @@ const routes: Routes = [
   },
   {
 
-    path:'/login',
+    path:'login',
     component:LoginComponent
   },
   {
