@@ -187,6 +187,97 @@
           }
         }
       }
+    },
+    "two-way-binding": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/two-way-binding",
+      "sourceRoot": "projects/two-way-binding/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/two-way-binding",
+            "index": "projects/two-way-binding/src/index.html",
+            "main": "projects/two-way-binding/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/two-way-binding/tsconfig.app.json",
+            "assets": [
+              "projects/two-way-binding/src/favicon.ico",
+              "projects/two-way-binding/src/assets"
+            ],
+            "styles": [
+              "projects/two-way-binding/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "two-way-binding:build:production"
+            },
+            "development": {
+              "browserTarget": "two-way-binding:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "two-way-binding:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/two-way-binding/tsconfig.spec.json",
+            "assets": [
+              "projects/two-way-binding/src/favicon.ico",
+              "projects/two-way-binding/src/assets"
+            ],
+            "styles": [
+              "projects/two-way-binding/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
   },
   "cli": {
