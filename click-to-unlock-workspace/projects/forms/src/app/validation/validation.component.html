@@ -1,0 +1,16 @@
+<p>validation works!</p>
+
+<form [formGroup]="loginForm" (submit)="login()">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email">
+      <span class="text-danger" *ngIf="email && email.invalid && email.touched">enter valid details</span>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1">
+      <span class="text-danger" *ngIf="password && password.invalid && password.touched">enter valid details</span>
+    </div>
+   
+    <button [disabled]="loginForm.invalid"type="submit" class="btn btn-primary">Submit</button>
+  </form>
