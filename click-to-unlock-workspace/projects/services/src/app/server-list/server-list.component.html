@@ -1,0 +1,15 @@
+<p>server-list</p>
+
+<div class="row">
+    <div class="col-4" *ngFor="let server of servers; let i= index" >
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{server.name}}</h5>
+                <p class="card-text">{{server.status}}</p>
+                <button class="btn btn-danger mx-1" (click)="DeleteServer(i)">Delete</button>
+                <button *ngIf="server.status=='offline'" class="btn btn-success mx-1" (click)="UpdateServerStatus(i, 'online')">Online</button>
+                <button *ngIf="server.status=='online'" class="btn btn-warning mx-1" (click)="UpdateServerStatus(i, 'offline')">Offline</button>
+            </div>
+        </div>
+    </div>
+</div>
