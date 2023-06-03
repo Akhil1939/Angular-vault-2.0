@@ -1,0 +1,11 @@
+<div class="border">
+  <p>child works!</p>
+<div class="d-flex">
+
+    <input type="text" class="form-control w-25 mx-2"  #newItem />
+    <button class="btn btn-success mx-3" (click)="AddItem(newItem.value)">Add</button>
+</div>
+  <ul>
+    <li *ngFor="let item of list">{{ item }}</li>
+  </ul>
+</div>

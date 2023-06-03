@@ -1,0 +1,7 @@
+
+<div class="border p-4">
+  <h5 >parent</h5>
+  <span *ngFor="let item of list">{{item}}, </span>
+  <app-child class="" (newItemEvent)="NewItemAdded($event)" [list]="list"></app-child>
+
+</div>
