@@ -1,0 +1,18 @@
+
+<form #productsForm="ngForm" (ngSubmit)="AddProductData(productsForm.value)">
+  <input type="text" ngModel name="title" ><br>
+
+  <input type="text" ngModel name="description" ><br>
+
+  <button type="submit">Submit</button>
+
+</form>
+
+
+
+<ul>
+  <li *ngFor="let product of products">
+    {{product.title}} ```` {{product.description}}
+
+  </li>
+</ul>
