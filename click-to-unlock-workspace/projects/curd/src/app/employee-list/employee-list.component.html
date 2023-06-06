@@ -3,7 +3,14 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-        <h1>Employee List</h1>
+            <div class="row">
+
+                <h1 class="col">Employee List</h1>
+                <div class="col">
+
+                    <button class="btn btn-outline-warning" routerLink="/employee/Add">Add Employee</button>
+                </div>
+            </div>
         <table class="table table-bordered">
             <thead>
             <tr>
@@ -18,14 +25,14 @@
             </thead>
             <tbody>
             <tr *ngFor="let employee of employees">
-                <td>{{employee.id}}</td>
-                <td>{{employee.name}}</td>
-                <td>{{employee.email}}</td>
-                <td>{{employee.phone}}</td>
-                <td>{{employee.salary}}</td>
+                <td>{{employee.empId}}</td>
+                <td>{{employee.empName}}</td>
+                <td>{{employee.empEmail}}</td>
+                <td>{{employee.empMobile}}</td>
+                <td>{{employee.empSalary}}</td>
                 <td>{{employee.department}}</td>
                 <td>
-                <button class="btn btn-primary">Edit</button>
+                <button class="btn btn-primary" routerLink="/employee/{{employee.empId}}">Edit</button>
                 <button class="btn btn-danger">Delete</button>
                 </td>
             </tr>

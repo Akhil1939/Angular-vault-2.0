@@ -1,0 +1,7 @@
+<form (ngSubmit)="submitForm()" [formGroup]="formService.form">
+  <!-- <app label="Name" [control]="formService.form.controls.name"></app> -->
+  <app-text-input label="Name" [control]="formService.form.controls['name']"></app-text-input>
+  <app-email-input label="Email" [control]="formService.form.controls['email']"></app-email-input>
+  
+  <button type="submit">Submit</button>
+</form>
