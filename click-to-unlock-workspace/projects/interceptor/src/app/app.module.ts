@@ -1,11 +1,10 @@
+import { AuthInterceptorService } from './Interceptors/AuthInterceptor.Service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'; // <-- Import HttpClientModule
-import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { AuthInterceptorService } from './Interceptors/AuthInterceptor.Service';
-
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,9 +12,8 @@ import { AuthInterceptorService } from './Interceptors/AuthInterceptor.Service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    FormsModule,
     HttpClientModule,
-    FormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService  , multi: true },
