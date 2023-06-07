@@ -9,6 +9,7 @@ import { AuthService } from '../services/authServices';
   export class authGuardServiceGuard {
   
     constructor(private authService: AuthService, private router: Router) { }
+    
     canActivate(): boolean {
         console.log('authGuardServiceGuard');
       if (!this.authService.isLoggedIn()) {

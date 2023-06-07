@@ -1,6 +1,6 @@
 export class authchildService{
     constructor() { }
     isChildAllowed() {
-        return true;
+        return false;
     }
 }
