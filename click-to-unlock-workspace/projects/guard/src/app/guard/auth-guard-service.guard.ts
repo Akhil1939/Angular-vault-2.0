@@ -2,7 +2,7 @@ import { CanActivateFn, Router, UrlTree } from '@angular/router';
 
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AuthService } from './authServices';
+import { AuthService } from '../services/authServices';
   @Injectable({
     providedIn: 'root'
   })
