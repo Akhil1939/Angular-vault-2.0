@@ -6,6 +6,9 @@ import { OfOperatorComponent } from './of-operator/of-operator.component';
 import { FromOperatorComponent } from './from-operator/from-operator.component';
 import { FromEventOperatorComponent } from './from-event-operator/from-event-operator.component';
 import { IntervalOperatorComponent } from './interval-operator/interval-operator.component';
+import { DebounceTimeComponent } from './debounce-time/debounce-time.component';
+import { SearchComponent } from './debounce-time/search/search.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,10 +16,15 @@ import { IntervalOperatorComponent } from './interval-operator/interval-operator
     OfOperatorComponent,
     FromOperatorComponent,
     FromEventOperatorComponent,
-    IntervalOperatorComponent
+    IntervalOperatorComponent,
+    DebounceTimeComponent,
+    SearchComponent,
+
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

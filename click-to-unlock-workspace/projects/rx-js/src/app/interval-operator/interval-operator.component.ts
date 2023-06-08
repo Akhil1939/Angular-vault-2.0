@@ -13,10 +13,10 @@ export class IntervalOperatorComponent {
   students:Observable<string> = from(this.studentsList);
   ngOnInit(): void {
     this.students.subscribe(data=>{
-      const seqNumber = interval(1000);
+      const seqNumber = interval(200);
 
-      seqNumber.subscribe(data=>{
-        console.log(data);
+      seqNumber.subscribe(num=>{
+        console.log(data + num);
       });
 
       console.log(data);
