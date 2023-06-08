@@ -1006,6 +1006,97 @@
           }
         }
       }
+    },
+    "guard2.0": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/guard2.0",
+      "sourceRoot": "projects/guard2.0/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/guard2.0",
+            "index": "projects/guard2.0/src/index.html",
+            "main": "projects/guard2.0/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/guard2.0/tsconfig.app.json",
+            "assets": [
+              "projects/guard2.0/src/favicon.ico",
+              "projects/guard2.0/src/assets"
+            ],
+            "styles": [
+              "projects/guard2.0/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "guard2.0:build:production"
+            },
+            "development": {
+              "browserTarget": "guard2.0:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "guard2.0:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/guard2.0/tsconfig.spec.json",
+            "assets": [
+              "projects/guard2.0/src/favicon.ico",
+              "projects/guard2.0/src/assets"
+            ],
+            "styles": [
+              "projects/guard2.0/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
   },
   "cli": {
