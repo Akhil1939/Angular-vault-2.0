@@ -1,7 +1,7 @@
-<form (ngSubmit)="submitForm()" [formGroup]="formService.form">
-  <!-- <app label="Name" [control]="formService.form.controls.name"></app> -->
-  <app-text-input label="Name" [control]="formService.form.controls['name']"></app-text-input>
-  <app-email-input label="Email" [control]="formService.form.controls['email']"></app-email-input>
-  
+<form>
+  <app-text-input [name]="name" [title]="'enter your name'" (nameChange)="onNameChange($event)"></app-text-input>
+  <br>
+  <app-email-input [Email]="email" [title]="'Enter your Email'" (emailChange)="onEmailChange($event)"></app-email-input>
+  <!-- Include other field components here -->
   <button type="submit">Submit</button>
 </form>

@@ -9,8 +9,17 @@ import { FormControl } from '@angular/forms';
 export class AppComponent {
   constructor(public formService: FormService) {}
 
-  control:FormControl;
-  submitForm() {
-    this.formService.submitForm();
+  name: string = "";
+  onNameChange(name:string){
+    this.name = name;
+    console.log(name);
+
   }
+
+  email: string = "";
+  onEmailChange(email:string){
+    this.email = email;
+    console.log(email);
+  }
+  
 }

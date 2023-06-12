@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -7,6 +7,11 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./email-input.component.css']
 })
 export class EmailInputComponent {
-  @Input() label: string;
-  @Input() control: FormControl;
+  @Input() title: string = "";
+  @Input() Email: string = "";
+  @Output() emailChange = new EventEmitter<string>();
+
+  onChange() {
+    this.emailChange.emit(this.Email);
+  }
 }

@@ -1,4 +1,4 @@
 <div>
-    <label>{{ label }}</label>
-    <input type="text" [formControl]="control">
-  </div>
+  <label for="name">{{ title }}</label>
+  <input type="text" id="name" [(ngModel)]="name" (input)="onNameChange()" />
+</div>
