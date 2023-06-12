@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeServices } from '../Services/employee.service';
-import { Employee } from '../models/employee.model';
+import { Employee, UpdateEmployee } from '../models/employee.model';
 import { HttpClient } from '@angular/common/http';
 import { JsonPipe } from '@angular/common';
 import {
@@ -9,6 +9,7 @@ import {
   FormControlName,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-employee-upsert',
   templateUrl: './employee-upsert.component.html',
@@ -22,18 +23,20 @@ export class EmployeeUpsertComponent implements OnInit {
     empMobile: 0,
     empSalary: 0,
     department: '',
+    empDeptId: 0,
   };
-  strEmp:string='';
+  strEmp: string = '';
 
   AddEmpForm!: FormGroup;
   isUpdateMode: boolean = false;
 
-  constructor(private employeeServices: EmployeeServices) {}
+  constructor(private employeeServices: EmployeeServices, public router:Router) {}
 
   ngOnInit(): void {
     const employeeId = this.getEmployeeIdFromUrl();
     if (employeeId) {
       this.isUpdateMode = true;
+
       this.loadEmployeeData(employeeId);
     }
     this.initializeForm();
@@ -54,7 +57,9 @@ export class EmployeeUpsertComponent implements OnInit {
       .subscribe((data: Employee) => {
         this.employee = data;
         this.AddEmpForm.patchValue(this.employee);
-        this.strEmp = JSON.stringify(this.employee);
+        this.AddEmpForm.get('department')?.setValue(this.employee.empDeptId);
+        console.log(this.employee.empDeptId);
+        // this.strEmp = JSON.stringify(this.employee);
       });
   }
   initializeForm(): void {
@@ -64,17 +69,16 @@ export class EmployeeUpsertComponent implements OnInit {
       empEmail: new FormControl(this.employee.empEmail, Validators.required),
       empMobile: new FormControl(this.employee.empMobile),
       empSalary: new FormControl(this.employee.empSalary, Validators.required),
-      department: new FormControl(
-        this.employee.department,
-        Validators.required
-      ),
+      empDeptId: new FormControl(this.employee.empDeptId, Validators.required),
     });
   }
 
   saveEmployee(): void {
+    console.log(this.isUpdateMode);
     if (this.AddEmpForm.valid) {
       const employeeData: Employee = this.AddEmpForm.value;
       if (this.isUpdateMode) {
+      
         this.updateEmployee(employeeData);
       } else {
         this.addEmployee(employeeData);
@@ -82,18 +86,28 @@ export class EmployeeUpsertComponent implements OnInit {
     }
   }
   addEmployee(employeeData: Employee): void {
-    // this.employeeServices.addEmployee(employeeData).subscribe((response) => {
-    //   // Handle success or error response
-    // }
-    // );
+    this.employeeServices.AddEmployee(employeeData).subscribe((response) => {
+      console.log(response)
+this.router.navigate(['/employee-list']);
+    });
+    
   }
 
   updateEmployee(employeeData: Employee): void {
-    // this.employeeServices.updateEmployee(employeeData).subscribe((response) => {
-    //   // Handle success or error response
-    // }
-    // );
+    this.employeeServices.UpdateEmployee(employeeData).subscribe((response) => {
+      console.log(response)
+      this.router.navigate(['/employee-list']);
+    });
+   
   }
+
+  DeleteEmployee(id:number): void {
+    this.employeeServices.DeleteEmployee(id).subscribe((response) => {
+      console.log(response)
+    });
+   
+  }
+
 }
 
 // constructor(private employeeServices:EmployeeServices) { }

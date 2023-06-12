@@ -1,45 +1,73 @@
-<p>{{strEmp}}</p>
+<p>{{ strEmp }}</p>
 
-<form [formGroup]="AddEmpForm"  class="row g-3" >
-    <div class="col-md-4 position-relative">
-      <label for="Emp-Name" class="form-label">Employee name</label>
-      <input type="text" class="form-control" id="Emp-Name"  formControlName="empName">
-      <span></span>
-    </div>
-    <div class="col-md-4 position-relative">
-      <label for="Emp-Email" class="form-label">Email</label>
-      <input type="email" class="form-control" id="Emp-Email" formControlName="empEmail" >
-      <span class="valid-tooltip">
+<form [formGroup]="AddEmpForm" class="row g-3">
+  <div class="col-md-4 position-relative">
+    <label for="Emp-Name" class="form-label">Employee name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="Emp-Name"
+      formControlName="empName"
+    />
+    <span></span>
+  </div>
+  <div class="col-md-4 position-relative">
+    <label for="Emp-Email" class="form-label">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="Emp-Email"
+      formControlName="empEmail"
+    />
+    <span class="valid-tooltip"> </span>
+  </div>
+  <div class="col-md-4 position-relative">
+    <label for="Emp-Mobile" class="form-label">Mobile No</label>
+    <input
+      type="number"
+      class="form-control"
+      id="Emp-Mobile"
+      formControlName="empMobile"
+    />
+    <span class="invalid-tooltip"> </span>
+  </div>
+
+  <div class="col-md-6 position-relative">
+    <label for="Emp-Salary" class="form-label">Salary</label>
+    <input
+      type="number"
+      class="form-control"
+      id="Emp-Salary"
+      formControlName="empSalary"
+    />
+    <span class="invalid-tooltip"> Please provide a valid city. </span>
+  </div>
+  <div class="col-md-3 position-relative">
+    <label for="Emp-Dept" class="form-label">Department</label>
+    <select
+      class="form-select"
+      id="Emp-Dept"
+      formControlName="empDeptId"
+      required
+    >
+      <option value=1 >Marketing</option>
+      <option value=2 >Sales</option>
+      <option value=3 >Finance</option>
+      <option value=4 >Human Resources</option>
+      <option value=5 >Operations</option>
+      <option value=6 >Research</option>
+      <option value=7 >Information Technology</option>
+      <option value=8 >Customer Services</option>
+      <option value=9 >Legal</option>
+      <option value=10 >Administrations</option>
       
-      </span>
-    </div>
-    <div class="col-md-4 position-relative">
-      <label for="Emp-Mobile" class="form-label">Mobile No</label>
-        <input type="number" class="form-control" id="Emp-Mobile" formControlName="empMobile" >
-        <span class="invalid-tooltip">
-           
-        </span>
-      </div>
-   
-    <div class="col-md-6 position-relative">
-      <label for="Emp-Salary" class="form-label">Salary</label>
-      <input type="number" class="form-control" id="Emp-Salary" formControlName="empSalary">
-      <span class="invalid-tooltip">
-        Please provide a valid city.
-      </span>
-    </div>
-    <div class="col-md-3 position-relative">
-      <label for="Emp-Dept" class="form-label">Department</label>
-      <select class="form-select" id="Emp-Dept" required>
-        <option selected disabled value="">Choose...</option>
-        <option>...</option>
-      </select>
-      <span class="invalid-tooltip">
-        Please select a valid state.
-      </span>
-    </div>
-    
-    <div class="col-12">
-      <button class="btn btn-success" >Add Employee</button>
-    </div>
-  </form>
+      
+    </select>
+    <span class="invalid-tooltip"> Please select a valid state. </span>
+  </div>
+
+  <div class="col-12">
+    <button *ngIf="!isUpdateMode" class="btn btn-success" (click)="saveEmployee()">Add Employee</button>
+    <button *ngIf="isUpdateMode" class="btn btn-warning"  (click)="saveEmployee()">Update Employee</button>
+  </div>
+</form>

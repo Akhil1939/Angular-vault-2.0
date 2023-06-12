@@ -4,5 +4,11 @@ export interface Employee {
     empEmail: string;
     empMobile: number;
     empSalary: number;
-    department: string;
-}   
+    department?: string; 
+    empDeptId: number;
+}  
+
+export interface UpdateEmployee {
+    empId: number;
+    employee: Employee;
+}

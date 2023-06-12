@@ -33,7 +33,7 @@
                 <td>{{employee.department}}</td>
                 <td>
                 <button class="btn btn-primary" routerLink="/employee/{{employee.empId}}">Edit</button>
-                <button class="btn btn-danger">Delete</button>
+                <button class="btn btn-danger" (click)="DeleteEmployee(employee.empId)">Delete</button>
                 </td>
             </tr>
             </tbody>
