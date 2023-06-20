@@ -1,6 +1,7 @@
+import { ToastrService, ToastrModule } from 'ngx-toastr';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -21,12 +22,14 @@ import { EmployeeUpsertComponent } from './employee-upsert/employee-upsert.compo
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
   ],
-  providers: [EmployeeServices],
+  providers: [EmployeeServices, ToastrService],
   bootstrap: [AppComponent],
   exports:[ReactiveFormsModule]
 })

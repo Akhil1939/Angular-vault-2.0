@@ -574,7 +574,8 @@
               "projects/curd/src/assets"
             ],
             "styles": [
-              "projects/curd/src/styles.css"
+              "projects/curd/src/styles.css",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           },
@@ -1183,6 +1184,190 @@
             ],
             "styles": [
               "projects/images/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "pagination": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/pagination",
+      "sourceRoot": "projects/pagination/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/pagination",
+            "index": "projects/pagination/src/index.html",
+            "main": "projects/pagination/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/pagination/tsconfig.app.json",
+            "assets": [
+              "projects/pagination/src/favicon.ico",
+              "projects/pagination/src/assets"
+            ],
+            "styles": [
+              "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "projects/pagination/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "pagination:build:production"
+            },
+            "development": {
+              "browserTarget": "pagination:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "pagination:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/pagination/tsconfig.spec.json",
+            "assets": [
+              "projects/pagination/src/favicon.ico",
+              "projects/pagination/src/assets"
+            ],
+            "styles": [
+              "projects/pagination/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "carosol": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/carosol",
+      "sourceRoot": "projects/carosol/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/carosol",
+            "index": "projects/carosol/src/index.html",
+            "main": "projects/carosol/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/carosol/tsconfig.app.json",
+            "assets": [
+              "projects/carosol/src/favicon.ico",
+              "projects/carosol/src/assets"
+            ],
+            "styles": [
+              "projects/carosol/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "carosol:build:production"
+            },
+            "development": {
+              "browserTarget": "carosol:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "carosol:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/carosol/tsconfig.spec.json",
+            "assets": [
+              "projects/carosol/src/favicon.ico",
+              "projects/carosol/src/assets"
+            ],
+            "styles": [
+              "projects/carosol/src/styles.css"
             ],
             "scripts": []
           }
