@@ -1,0 +1,17 @@
+
+  <button class="input-file" (click)="fileInput.click()">
+
+    <mat-label>Select Files</mat-label>
+    <input #fileInput type="file" style="display: none" (change)="onFileSelected($event)" multiple="true">
+    <input matInput [value]="selectedFiles.length + ' files selected'" readonly >
+  </button>
+
+
+  <div class="badge-container" *ngIf="selectedFiles.length > 0">
+    <div class="file-badge" *ngFor="let file of selectedFiles">
+      {{ file.name }}
+      <button class="close-btn"  color="warn" (click)="removeFile(file)">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="close"></mat-icon>
+      </button>
+    </div>
+  </div>

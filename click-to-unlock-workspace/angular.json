@@ -1464,6 +1464,279 @@
           }
         }
       }
+    },
+    "date-picker": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/date-picker",
+      "sourceRoot": "projects/date-picker/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/date-picker",
+            "index": "projects/date-picker/src/index.html",
+            "main": "projects/date-picker/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/date-picker/tsconfig.app.json",
+            "assets": [
+              "projects/date-picker/src/favicon.ico",
+              "projects/date-picker/src/assets"
+            ],
+            "styles": [
+              "projects/date-picker/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "date-picker:build:production"
+            },
+            "development": {
+              "browserTarget": "date-picker:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "date-picker:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/date-picker/tsconfig.spec.json",
+            "assets": [
+              "projects/date-picker/src/favicon.ico",
+              "projects/date-picker/src/assets"
+            ],
+            "styles": [
+              "projects/date-picker/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "file-selector": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/file-selector",
+      "sourceRoot": "projects/file-selector/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/file-selector",
+            "index": "projects/file-selector/src/index.html",
+            "main": "projects/file-selector/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/file-selector/tsconfig.app.json",
+            "assets": [
+              "projects/file-selector/src/favicon.ico",
+              "projects/file-selector/src/assets"
+            ],
+            "styles": [
+              "projects/file-selector/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "file-selector:build:production"
+            },
+            "development": {
+              "browserTarget": "file-selector:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "file-selector:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/file-selector/tsconfig.spec.json",
+            "assets": [
+              "projects/file-selector/src/favicon.ico",
+              "projects/file-selector/src/assets"
+            ],
+            "styles": [
+              "projects/file-selector/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "image-selector": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/image-selector",
+      "sourceRoot": "projects/image-selector/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/image-selector",
+            "index": "projects/image-selector/src/index.html",
+            "main": "projects/image-selector/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/image-selector/tsconfig.app.json",
+            "assets": [
+              "projects/image-selector/src/favicon.ico",
+              "projects/image-selector/src/assets"
+            ],
+            "styles": [
+              "projects/image-selector/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "image-selector:build:production"
+            },
+            "development": {
+              "browserTarget": "image-selector:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "image-selector:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/image-selector/tsconfig.spec.json",
+            "assets": [
+              "projects/image-selector/src/favicon.ico",
+              "projects/image-selector/src/assets"
+            ],
+            "styles": [
+              "projects/image-selector/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
   },
   "cli": {

@@ -1,0 +1,25 @@
+.close-button {
+    position: absolute;
+    background-color: rgb(242, 207, 207);
+    top: 5px;
+    right: 5px;
+    z-index: 1;
+  }
+  mat-card {
+    margin: 10px 10px;
+    box-shadow: none;
+  }
+  .row{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 10px;
+}
+#file-label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}

@@ -15,6 +15,8 @@
     "@angular/compiler": "^16.0.0",
     "@angular/core": "^16.0.4",
     "@angular/forms": "^16.0.0",
+    "@angular/material": "^16.1.1",
+    "@angular/material-moment-adapter": "^16.1.1",
     "@angular/platform-browser": "^16.0.0",
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",

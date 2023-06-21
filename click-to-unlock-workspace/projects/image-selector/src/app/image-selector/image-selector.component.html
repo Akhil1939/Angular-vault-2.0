@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-content>
+    <mat-card-content>
+      <label for="fileInp" id="file-label" (drop)="onFileDropped($event)" (dragover)="onDragOver($event)" (dragleave)="onDragLeave($event)"><mat-icon class="upload-icon">cloud_upload</mat-icon>
+       &nbsp; &nbsp; Drag and Drop Pictures and Videos here</label>
+      <input type="file" id="fileInp" hidden multiple (change)="onFileSelected($event)" accept="image/*">
+    </mat-card-content>
+    <div class="row">
+      <mat-card *ngFor="let src of srcs">
+        <mat-card-content>
+          <img [src]="src" height="{{imgHeight}}" width="{{imgWidth}}">
+          <mat-icon class="close-button" (click)="removeSrc(src)">close</mat-icon>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-card-content>
+</mat-card>
