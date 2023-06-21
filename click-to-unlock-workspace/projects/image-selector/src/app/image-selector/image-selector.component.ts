@@ -16,7 +16,7 @@ export class ImageSelectorComponent {
     const target = event.target as HTMLInputElement;
     if (target.files) this.handleFile(target.files);
   }
-
+//handleFile() method is used to handle the file selection event.
   handleFile(files: FileList): void {
     if (files) {
       for (let i = 0; i < files.length; i++) {
@@ -39,6 +39,7 @@ export class ImageSelectorComponent {
     }
   }
 
+  //removeSrc() method is used to remove the selected image from the list.
   removeSrc(src: string): void {
     const index = this.srcs.indexOf(src);
     if (index > -1) {
@@ -49,20 +50,25 @@ export class ImageSelectorComponent {
     }
   }
 
+  //onFileDropped() method is used to handle the file drop event.
   onFileDropped(event: DragEvent): void {
     event.preventDefault();
     const files = event.dataTransfer?.files;
     if (files) this.handleFile(files);
   }
 
+  //onDragOver() method is used to handle the drag over event.
   onDragOver(event: DragEvent): void {
     event.preventDefault();
     event.stopPropagation();
   }
 
+  //onDragLeave() method is used to handle the drag leave event.
   onDragLeave(event: DragEvent): void {
     event.preventDefault();
     event.stopPropagation();
   }
 
 }
+
+//done
