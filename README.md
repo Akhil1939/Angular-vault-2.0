@@ -1,2 +1,2 @@
 # Angular-vault-2.0
-handy concept of angular
+handy concept of angular with example
