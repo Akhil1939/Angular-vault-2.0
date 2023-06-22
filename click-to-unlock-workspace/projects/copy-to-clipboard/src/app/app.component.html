@@ -1,0 +1,5 @@
+<div #container>
+  <button ngxClipboard [cbContent]="'Content to be copied.'" [container]="container">Copy</button>
+</div>
+
+<button (click)="copyLongText()">Click to copy long text</button>

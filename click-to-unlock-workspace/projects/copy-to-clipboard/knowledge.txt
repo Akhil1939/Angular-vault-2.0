@@ -1,0 +1,9 @@
+The Clipboard service contains two methods:
+
+beginCopy — This method is designed to prepare a string to be copied later. This is mainly used when a large string is about to be copied. Large strings may take too long to successfully render and be copied in the same tick.
+
+copy— This method is designed to copy the provided text into the user’s clipboard. The method returns a boolean value indicating whether the operation was successful.
+
+npm 
+install @angular/cdk
+npm i ngx-clipboard

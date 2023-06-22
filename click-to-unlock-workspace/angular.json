@@ -1737,6 +1737,97 @@
           }
         }
       }
+    },
+    "copy-to-clipboard": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/copy-to-clipboard",
+      "sourceRoot": "projects/copy-to-clipboard/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/copy-to-clipboard",
+            "index": "projects/copy-to-clipboard/src/index.html",
+            "main": "projects/copy-to-clipboard/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/copy-to-clipboard/tsconfig.app.json",
+            "assets": [
+              "projects/copy-to-clipboard/src/favicon.ico",
+              "projects/copy-to-clipboard/src/assets"
+            ],
+            "styles": [
+              "projects/copy-to-clipboard/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "copy-to-clipboard:build:production"
+            },
+            "development": {
+              "browserTarget": "copy-to-clipboard:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "copy-to-clipboard:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/copy-to-clipboard/tsconfig.spec.json",
+            "assets": [
+              "projects/copy-to-clipboard/src/favicon.ico",
+              "projects/copy-to-clipboard/src/assets"
+            ],
+            "styles": [
+              "projects/copy-to-clipboard/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
   },
   "cli": {
