@@ -1,4 +1,12 @@
-<div>
-  <label for="name">{{ title }}</label>
-  <input type="text" id="name" [(ngModel)]="name" (input)="onNameChange()" />
+<div [formGroup]="parentForm">
+  <label >{{ title }}</label>
+  <input type="text" [formControlName]="controlName" />
+  <div *ngIf="control.invalid && control.touched">
+    <p>some errors occured</p>
+    <div *ngIf="control.errors?.['required']">Field is required.</div>
+    
+    <!-- Add more validation error messages as needed -->
+  </div>
+
+  
 </div>
