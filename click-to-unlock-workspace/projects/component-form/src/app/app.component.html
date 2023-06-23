@@ -1,7 +1,8 @@
-<form>
-  <app-text-input [name]="name" [title]="'enter your name'" (nameChange)="onNameChange($event)"></app-text-input>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <app-text-input [parentForm]="form" controlName="firstName" title="enter your name"></app-text-input>
+
   <br>
-  <app-email-input [Email]="email" [title]="'Enter your Email'" (emailChange)="onEmailChange($event)"></app-email-input>
+ 
   <!-- Include other field components here -->
-  <button type="submit">Submit</button>
+  <button  [disabled]="form.invalid" type="submit">Submit</button>
 </form>

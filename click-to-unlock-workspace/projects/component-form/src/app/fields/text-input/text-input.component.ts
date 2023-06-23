@@ -1,17 +1,21 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-text-input',
   templateUrl: './text-input.component.html',
   styleUrls: ['./text-input.component.css']
 })
-export class TextInputComponent {
-  @Input() title: string = "";
-  @Input() name: string= "";
+export class TextInputComponent implements OnInit {
+  @Input() parentForm: any;
+  @Input() controlName: string = '';
+  @Input() title: string = '';
+ 
   @Output() nameChange = new EventEmitter<string>();
 
-  onNameChange() {
-    this.nameChange.emit(this.name);
-  }
+  control:FormControl = new FormControl('');
 
+
+  ngOnInit(): void {
+    this.control = this.parentForm.get(this.controlName) ;
+  }
 }

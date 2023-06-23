@@ -1,25 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormService } from '../../form.service';
-import { FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  constructor(public formService: FormService) {}
-
-  name: string = "";
-  onNameChange(name:string){
-    this.name = name;
-    console.log(name);
-
-  }
-
-  email: string = "";
-  onEmailChange(email:string){
-    this.email = email;
-    console.log(email);
-  }
+export class AppComponent implements OnInit {
   
+  constructor(public formService: FormService,private formBuilder:FormBuilder) {}
+
+  form: FormGroup = new FormGroup({});
+  ngOnInit(): void {
+    this.form = this.formBuilder.group({
+      firstName: ['akhil', Validators.required],
+      
+      // Add more form controls with their respective validators
+    });
+  }
+
+  onSubmit() {
+    if (this.form.valid) {
+      // Form is valid, perform form submission or other actions
+      console.log(this.form.value);
+    } else {
+      // Form is invalid, handle validation errors
+      this.markFormControlsAsTouched();
+    }
+  }
+  markFormControlsAsTouched() {
+    Object.values(this.form.controls).forEach(control => {
+      control.markAsTouched();
+    });
+  }
 }
