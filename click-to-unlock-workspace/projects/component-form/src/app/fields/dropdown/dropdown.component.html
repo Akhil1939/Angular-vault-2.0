@@ -1,0 +1,15 @@
+<mat-form-field [formGroup]="parentForm" appearance="outline">
+    <mat-label>{{title}}</mat-label>
+    <mat-select [formControlName]="controlName"
+    [ariaPlaceholder]="placeholder"
+    [disabled]="disabled" [multiple]="multiple">
+        <mat-option *ngFor="let option of options" value="{{option.value}}" >{{option.viewValue}}</mat-option>
+      <mat-option value="two">Second option</mat-option>
+    </mat-select>
+    
+  </mat-form-field>
+  <div *ngIf="control.invalid && control.touched">
+    <mat-error *ngIf="parentForm.get(controlName).hasError('required')">
+      {{ title }} is <strong>required</strong>
+    </mat-error>
+  </div>

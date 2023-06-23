@@ -9,8 +9,11 @@ export class TextInputComponent implements OnInit {
   @Input() parentForm: any;
   @Input() controlName: string = '';
   @Input() title: string = '';
+  @Input() placeholder: string = '';
+  @Input() type: string = '';
+  @Input() disabled: boolean = false;
  
-  @Output() nameChange = new EventEmitter<string>();
+
 
   control:FormControl = new FormControl('');
 

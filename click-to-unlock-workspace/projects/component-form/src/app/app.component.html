@@ -1,8 +1,38 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <app-text-input [parentForm]="form" controlName="firstName" title="enter your name"></app-text-input>
+  <app-text-input
+    [parentForm]="form"
+    controlName="firstName"
+    title="First Name"
+    [placeholder]="'enter your first name'"
+    [type]="'text'"
+  ></app-text-input>
+  <br />
 
-  <br>
- 
+  <app-dropdown
+    [parentForm]="form"
+    controlName="options"
+    title="single dropdown"
+    placeholder="single select"
+  ></app-dropdown>
+
+  <br />
+  <app-dropdown
+    [parentForm]="form"
+    controlName="multiOptions"
+    title="multi dropdown"
+    placeholder="multi select"
+    [multiple]="true"
+  ></app-dropdown>
+  <br />
+
+  <app-date-picker
+    [parentForm]="form"
+    controlName="date"
+    title="Date"
+    placeholder="select date"
+  ></app-date-picker>
+
   <!-- Include other field components here -->
-  <button  [disabled]="form.invalid" type="submit">Submit</button>
+  <br />
+  <button [disabled]="form.invalid" type="submit">Submit</button>
 </form>
