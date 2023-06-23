@@ -1,12 +1,40 @@
-<div [formGroup]="parentForm">
-  <label >{{ title }}</label>
-  <input type="text" [formControlName]="controlName" />
+<mat-form-field [formGroup]="parentForm" appearance="outline">
+  <mat-label>{{ title }}</mat-label>
+  <input
+    matInput
+    [formControlName]="controlName"
+    [placeholder]="placeholder"
+    [type]="type"
+    [disabled]="disabled"
+  />
+</mat-form-field>
   <div *ngIf="control.invalid && control.touched">
-    <p>some errors occured</p>
-    <div *ngIf="control.errors?.['required']">Field is required.</div>
-    
-    <!-- Add more validation error messages as needed -->
+    <mat-error *ngIf="parentForm.get(controlName).hasError('required')">
+      {{ title }} is <strong>required</strong>
+    </mat-error>
+    <mat-error *ngIf="parentForm.get(controlName).hasError('minlength')">
+      {{ title }} must be at least
+      {{ parentForm.get(controlName).errors.minlength.requiredLength }}
+      characters
+    </mat-error>
+    <mat-error *ngIf="parentForm.get(controlName).hasError('maxlength')">
+      {{ title }} must be less than
+      {{ parentForm.get(controlName).errors.maxlength.requiredLength }}
+      characters
+    </mat-error>
+    <mat-error *ngIf="parentForm.get(controlName).hasError('pattern')">
+      {{ title }} data must be follow valid pattern
+    </mat-error>
+    <mat-error *ngIf="parentForm.get(controlName).hasError('email')">
+      {{ title }} must be a valid email address
+    </mat-error>
+    <mat-error *ngIf="parentForm.get(controlName).hasError('min')">
+      {{ title }} must be at least
+      {{ parentForm.get(controlName).errors.min.min }}
+    </mat-error>
+    <mat-error *ngIf="parentForm.get(controlName).hasError('max')">
+      {{ title }} must be less than
+      {{ parentForm.get(controlName).errors.max.max }}
+    </mat-error>
   </div>
 
-  
-</div>

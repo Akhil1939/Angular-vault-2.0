@@ -13,7 +13,10 @@ export class AppComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      firstName: ['akhil', Validators.required],
+      firstName: ['akhil', [Validators.required, Validators.minLength(2)]],
+      options: ['option1', Validators.required],
+      multiOptions: [['option1', 'option2'], Validators.required],
+      date: ['', Validators.required],
       
       // Add more form controls with their respective validators
     });
