@@ -1828,6 +1828,151 @@
           }
         }
       }
+    },
+    "SSR": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ssr",
+      "sourceRoot": "projects/ssr/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/SSR/browser",
+            "index": "projects/ssr/src/index.html",
+            "main": "projects/ssr/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/ssr/tsconfig.app.json",
+            "assets": [
+              "projects/ssr/src/favicon.ico",
+              "projects/ssr/src/assets"
+            ],
+            "styles": [
+              "projects/ssr/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "SSR:build:production"
+            },
+            "development": {
+              "browserTarget": "SSR:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "SSR:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/ssr/tsconfig.spec.json",
+            "assets": [
+              "projects/ssr/src/favicon.ico",
+              "projects/ssr/src/assets"
+            ],
+            "styles": [
+              "projects/ssr/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/SSR/server",
+            "main": "projects/ssr/server.ts",
+            "tsConfig": "projects/ssr/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "SSR:build:development",
+              "serverTarget": "SSR:server:development"
+            },
+            "production": {
+              "browserTarget": "SSR:build:production",
+              "serverTarget": "SSR:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "SSR:build:production",
+              "serverTarget": "SSR:server:production"
+            },
+            "development": {
+              "browserTarget": "SSR:build:development",
+              "serverTarget": "SSR:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
+        }
+      }
     }
   },
   "cli": {
