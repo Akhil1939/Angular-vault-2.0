@@ -1973,7 +1973,190 @@
           "defaultConfiguration": "production"
         }
       }
+    },
+    "lazyLoadingAndModules": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/lazy-loading-and-modules",
+      "sourceRoot": "projects/lazy-loading-and-modules/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/lazy-loading-and-modules",
+            "index": "projects/lazy-loading-and-modules/src/index.html",
+            "main": "projects/lazy-loading-and-modules/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/lazy-loading-and-modules/tsconfig.app.json",
+            "assets": [
+              "projects/lazy-loading-and-modules/src/favicon.ico",
+              "projects/lazy-loading-and-modules/src/assets"
+            ],
+            "styles": [
+              "projects/lazy-loading-and-modules/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "lazyLoadingAndModules:build:production"
+            },
+            "development": {
+              "browserTarget": "lazyLoadingAndModules:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "lazyLoadingAndModules:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/lazy-loading-and-modules/tsconfig.spec.json",
+            "assets": [
+              "projects/lazy-loading-and-modules/src/favicon.ico",
+              "projects/lazy-loading-and-modules/src/assets"
+            ],
+            "styles": [
+              "projects/lazy-loading-and-modules/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "advance-routing": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/advance-routing",
+      "sourceRoot": "projects/advance-routing/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/advance-routing",
+            "index": "projects/advance-routing/src/index.html",
+            "main": "projects/advance-routing/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/advance-routing/tsconfig.app.json",
+            "assets": [
+              "projects/advance-routing/src/favicon.ico",
+              "projects/advance-routing/src/assets"
+            ],
+            "styles": [
+              "projects/advance-routing/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "advance-routing:build:production"
+            },
+            "development": {
+              "browserTarget": "advance-routing:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "advance-routing:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/advance-routing/tsconfig.spec.json",
+            "assets": [
+              "projects/advance-routing/src/favicon.ico",
+              "projects/advance-routing/src/assets"
+            ],
+            "styles": [
+              "projects/advance-routing/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
+   
   },
   "cli": {
     "analytics": false
