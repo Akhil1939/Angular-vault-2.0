@@ -2155,6 +2155,97 @@
           }
         }
       }
+    },
+    "reactive-dynamic-form": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/reactive-dynamic-form",
+      "sourceRoot": "projects/reactive-dynamic-form/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/reactive-dynamic-form",
+            "index": "projects/reactive-dynamic-form/src/index.html",
+            "main": "projects/reactive-dynamic-form/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/reactive-dynamic-form/tsconfig.app.json",
+            "assets": [
+              "projects/reactive-dynamic-form/src/favicon.ico",
+              "projects/reactive-dynamic-form/src/assets"
+            ],
+            "styles": [
+              "projects/reactive-dynamic-form/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "reactive-dynamic-form:build:production"
+            },
+            "development": {
+              "browserTarget": "reactive-dynamic-form:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "reactive-dynamic-form:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/reactive-dynamic-form/tsconfig.spec.json",
+            "assets": [
+              "projects/reactive-dynamic-form/src/favicon.ico",
+              "projects/reactive-dynamic-form/src/assets"
+            ],
+            "styles": [
+              "projects/reactive-dynamic-form/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
    
   },

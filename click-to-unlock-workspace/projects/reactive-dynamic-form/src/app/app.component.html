@@ -1,0 +1,38 @@
+<form [formGroup]="exampleForm">
+  <input
+    type="text"
+    title="name"
+    placeholder="name"
+    formControlName="name"
+  /><br />
+  <input
+    type="text"
+    title="surname"
+    placeholder="surname"
+    formControlName="surname"
+  /><br />
+
+  <hr />
+
+  <button type="button" (click)="addHobby()">Add hobby</button>
+  <div formArrayName="hobbyList">
+    <div *ngFor="let control of hobbies.controls; let i = index">
+      <div [formGroupName]="i">
+        <input
+          type="text"
+          title="hobby"
+          placeholder="hobby"
+          formControlName="title"
+        /><br />
+        <input
+          type="text"
+          title="playLevel"
+          placeholder="playLevel"
+          formControlName="playLevel"
+        /><br />
+        <button type="button" (click)="deleteHobby(i)">delete hobby</button>
+      </div>
+    </div>
+  </div>
+  <hr />
+</form>
