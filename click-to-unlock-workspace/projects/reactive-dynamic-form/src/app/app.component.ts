@@ -40,7 +40,7 @@ export class AppComponent {
     this.exampleForm= this.fb.group({
       name: [''],
       surname: [''],
-      hobbyList: this.fb.array([]),
+      hobbyList: this.fb.array([this.hobbies]),
     });
     this.exampleForm.valueChanges.subscribe((res) => console.log(res));
   }
